@@ -14,7 +14,6 @@
         android:text="userId"
         android:textSize="20sp"
         android:textColor="#2881ce"
-        android:autoText="false"
         android:textStyle="italic"
         android:layout_marginBottom="5sp" />
 

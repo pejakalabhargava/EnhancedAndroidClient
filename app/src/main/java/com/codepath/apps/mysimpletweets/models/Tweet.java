@@ -150,7 +150,7 @@ public class Tweet extends Model implements Parcelable {
 
     protected Tweet(Parcel in) {
         this.body = in.readString();
-        this.uid = in.readLong();
+        this.uid = in.readInt();
         this.user = in.readParcelable(User.class.getClassLoader());
         this.createdAt = in.readString();
         this.relativeTime = in.readString();

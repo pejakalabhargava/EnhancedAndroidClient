@@ -7,4 +7,20 @@ tools:context=".activity.TimelineActivity">
     android:icon="@drawable/ic_compose_tweet"
     android:title="@string/tweet"
     app:showAsAction="always" />
+
+    <item
+        android:id="@+id/miProfile"
+        android:icon="@drawable/ic_profile"
+        android:title="@string/profile"
+        app:showAsAction="ifRoom"
+        android:onClick="onProfileView"/>
+
+    <item
+        android:id="@+id/miActionProgress"
+        android:title="Loading..."
+        android:visible="false"
+        android:orderInCategory="100"
+        app:showAsAction="always"
+        app:actionLayout="@layout/action_view_progress" />
+
 </menu>

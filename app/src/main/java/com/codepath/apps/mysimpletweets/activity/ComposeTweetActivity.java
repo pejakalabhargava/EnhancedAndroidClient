@@ -36,6 +36,7 @@ public class ComposeTweetActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compose_tweet);
+        user = getIntent().getParcelableExtra("user");
         count = (TextView) findViewById(R.id.tvCount);
         compose = (Button) findViewById(R.id.btCompose);
         cancel = (Button) findViewById(R.id.btCancel);

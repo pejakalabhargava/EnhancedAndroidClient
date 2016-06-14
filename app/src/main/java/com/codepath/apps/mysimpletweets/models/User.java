@@ -27,6 +27,13 @@ public class User extends Model implements Parcelable {
     @Column(name = "profileImageUrl")
     private String profileImageUrl;
 
+    private String tagLine;
+
+    private  int followersCount;
+
+    private int followingsCount;
+
+
     public static User fromJson(JSONObject json) {
         User user = new User();
         try {
@@ -34,6 +41,9 @@ public class User extends Model implements Parcelable {
             user.uid = json.getLong("id");
             user.screenName = json.getString("screen_name");
             user.profileImageUrl = json.getString("profile_image_url");
+            user.tagLine = json.getString("description");
+            user.followersCount = json.getInt("followers_count");
+            user.followingsCount = json.getInt("friends_count");
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -72,6 +82,31 @@ public class User extends Model implements Parcelable {
         this.profileImageUrl = profileImageUrl;
     }
 
+    public String getTagLine() {
+        return tagLine;
+    }
+
+    public void setTagLine(String tagLine) {
+        this.tagLine = tagLine;
+    }
+
+    public int getFollowersCount() {
+        return followersCount;
+    }
+
+    public void setFollowersCount(int followersCount) {
+        this.followersCount = followersCount;
+    }
+
+    public int getFollowingsCount() {
+        return followingsCount;
+    }
+
+    public void setFollowingsCount(int followingsCount) {
+        this.followingsCount = followingsCount;
+    }
+
+
     @Override
     public int describeContents() {
         return 0;
@@ -83,10 +118,12 @@ public class User extends Model implements Parcelable {
         dest.writeLong(this.uid);
         dest.writeString(this.screenName);
         dest.writeString(this.profileImageUrl);
+        dest.writeString(this.tagLine);
+        dest.writeInt(this.followersCount);
+        dest.writeInt(this.followingsCount);
     }
 
     public User() {
-        super();
     }
 
     protected User(Parcel in) {
@@ -94,9 +131,12 @@ public class User extends Model implements Parcelable {
         this.uid = in.readLong();
         this.screenName = in.readString();
         this.profileImageUrl = in.readString();
+        this.tagLine = in.readString();
+        this.followersCount = in.readInt();
+        this.followingsCount = in.readInt();
     }
 
-    public static final Parcelable.Creator<User> CREATOR = new Parcelable.Creator<User>() {
+    public static final Creator<User> CREATOR = new Creator<User>() {
         @Override
         public User createFromParcel(Parcel source) {
             return new User(source);

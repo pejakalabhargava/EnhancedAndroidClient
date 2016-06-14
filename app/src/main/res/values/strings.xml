@@ -4,5 +4,6 @@
     <string name="app_name">SimpleTweets</string>
     <string name="login_label">Connect To Twitter</string>
     <string name="tweet">New Tweet</string>
+    <string name="profile">Profile</string>
 
 </resources>
